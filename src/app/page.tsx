@@ -1,10 +1,11 @@
-import React from 'react'
-import { Button } from '@/components/ui/button'
+import Hero from '@/components/home/hero';
 
 const page = () => {
   return (
-    <div className='text-red-600'>page12<Button>Click me</Button></div>
-  )
-}
+    <main>
+      <Hero />
+    </main>
+  );
+};
 
-export default page
+export default page;

@@ -1,4 +1,16 @@
-import type { MetaRecord } from 'nextra'
+import type { MetaRecord } from 'nextra';
+import { DOCUMENTATION } from '@/constants';
+
+const docsItems = Object.entries(DOCUMENTATION).reduce(
+  (acc, [key, item]) => {
+    acc[key] = {
+      title: item.title,
+      href: item.href,
+    };
+    return acc;
+  },
+  {} as Record<string, { title: string; href: string }>,
+);
 
 /**
  * type MetaRecordValue =
@@ -11,9 +23,18 @@ import type { MetaRecord } from 'nextra'
  **/
 const meta: MetaRecord = {
   index: {
-    title: 'Home',
-    type: 'page'
-  }
-}
+    type: 'page',
+    display: 'hidden',
+  },
+  about: {
+    title: 'About',
+    type: 'page',
+  },
+  docs: {
+    title: 'Docs',
+    type: 'menu',
+    items: docsItems,
+  },
+};
 
-export default meta
+export default meta;
